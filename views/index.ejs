@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="/index.css">
+	<title>Home Page</title>
+</head>
+<body>
+	<div class="app">
+		<div class="left">
+			<div class="blog-form">
+				<h2>Add Blog</h2>
+				<form>
+					<input type="text" name="title" placeholder="Title...">
+					<textarea type="text" name="content" placeholder="Content..."></textarea>
+					<button type="submit" name="submit">Add Blog</button>
+				</form>
+			</div>
+			<div class="blog-list">
+				<ul>
+					<% blogs.forEach(blog => { %>
+						<li data-id="<%= blog._id %>" class="blogList" >
+							<strong><%= blog.title %></strong>
+							<div><%= blog.body %></div>
+						</li>
+					<% }); %>
+				</ul>
+			</div>
+		</div>
+		<div class="right">
+			<div class="blog">
+				<span class="btn" id="delete-blog">DELETE</span><span> | </span><span class="btn" id="edit-blog">EDIT</span>
+				<h2 contenteditable="false" id="blog-title">Title</h2>
+				<div contenteditable="false" id="blog-content">Content...</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="/index.js"></script>
+</body>
+</html>
